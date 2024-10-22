@@ -5,7 +5,7 @@
 #include "wayland-egl.h"
 #include "EGL/egl.h"
 
-typedef struct DisplayContext {
+typedef struct {
   struct wl_display *display;
   struct wl_registry *registry;
   struct wl_compositor *compositor;
@@ -19,7 +19,7 @@ typedef struct DisplayContext {
   } egl;
 } DisplayContext;
 
-typedef struct WindowContext {
+typedef struct {
   DisplayContext *display;
   int w, h, x, y;
   const char *title;
@@ -35,5 +35,9 @@ typedef struct WindowContext {
     EGLSurface surface;
   } egl;
 } WindowContext;
+
+int createDisplayContext(DisplayContext *);
+int createWindowContext(DisplayContext *, WindowContext *);
+void destroyWindowContext(WindowContext *);
 
 #endif

@@ -5,7 +5,7 @@
 #include "wayland-client.h"
 #include "wayland-egl.h"
 
-#include "xdg-shell-protocol.h"
+#include "xdg-shell-client-protocol.h"
 
 #include "wayland/platform.h"
 
