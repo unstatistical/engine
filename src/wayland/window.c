@@ -85,12 +85,11 @@ int createWindowContext(DisplayContext *display, WindowContext *window) {
   return 1;
 }
 
-void destroyWindowContext(DisplayContext *display, WindowContext *window) {
-  eglDestroySurface(display->egl.display, window->egl.surface);
+void destroyWindowContext(WindowContext *window) {
+  eglDestroySurface(window->display->egl.display, window->egl.surface);
   wl_egl_window_destroy(window->egl.window);
   xdg_toplevel_destroy(window->xdg.toplevel);
   xdg_surface_destroy(window->xdg.surface);
   wl_region_destroy(window->region);
   wl_surface_destroy(window->surface);
-  eglDestroyContext(display->egl.display, window->egl.surface);
 }
