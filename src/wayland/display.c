@@ -77,7 +77,7 @@ int createDisplayContext(DisplayContext *display) {
   }
   if (eglInitialize(display->egl.display, &maj_version, &min_version) == EGL_FALSE) {
     printf("Failed to initialize display.\n");
-    return 1;
+    return 0;
   }
   if ((eglGetConfigs(display->egl.display, NULL, 0, &num_configs) != EGL_TRUE) || (num_configs == 0)) {
     printf("Failed to get configuration.\n");
